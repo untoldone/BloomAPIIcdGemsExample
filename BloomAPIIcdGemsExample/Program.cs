@@ -29,7 +29,7 @@ namespace BloomAPIIcdGemsExample
 
             IEnumerable<string> tenCodes = response.Result.Select<JObject, string>(mapping => mapping["icd10"].ToString());
 
-            // Generates https://www.bloomapi.com/api/search/usgov.hhs_icd_10_cm?key1=code&op1=eq&value1=<icd-10-code1>&value1=<icd-10-cod2>&value1=...
+            // Generates https://www.bloomapi.com/api/search/usgov.hhs.icd_10_cm?key1=code&op1=eq&value1=<icd-10-code1>&value1=<icd-10-cod2>&value1=...
             // Note, theres a maximum URL length which limits the number of codes you can find this way
             //  You may need to break this out into multiple queries depending on the number of ICD-10 mappings
             BloomApiSearchResponse tenResponse = service.Search("usgov.hhs.icd_10_cm", new BloomApiSearchOptions
